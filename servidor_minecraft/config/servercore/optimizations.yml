@@ -1,0 +1,19 @@
+# Optimizations adicionales de Server Core
+# Estas configuraciones solo toman efecto tras reiniciar el servidor
+
+# Previene lagspikes causados por carga síncrona de chunks.
+# Ejemplo: mapas solo actualizan chunks cargados (menos que vanilla según viewdistance).
+reduce-sync-loads: true
+
+# Reduce significativamente el tiempo de iteración de chunks al cachear los chunks que se tickean cada segundo.
+# Útil en servidores con muchos jugadores o viewdistance altos.
+# La lista de chunks que se tickean solo se actualiza cada segundo, en lugar de cada tick.
+cache-ticking-chunks: true
+
+# Reduce el tiempo de mobspawning, pero no es tan exacto como vanilla en los bordes de biomas.
+# Puede hacer que mobs aparezcan unos bloques fuera del bioma correcto (no afecta estructuras).
+fast-biome-lookups: false
+
+# Los ticks de fluidos (lava, fuego, etc.) se ejecutan dos veces por tick en vanilla.
+# Activar esto cancela el segundo tick "duplicado", pero puede cambiar ligeramente el comportamiento.
+cancel-duplicate-fluid-ticks: false
